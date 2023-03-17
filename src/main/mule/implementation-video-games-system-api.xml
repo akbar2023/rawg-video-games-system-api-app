@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="2ec49bf6-b70b-4862-868a-2086a0988396" >
+		<http:request-connection host="api.rawg.io" >
+			<http:authentication >
+				<http:basic-authentication username="akbar20" password="Myrawg@20" />
+			</http:authentication>
+		</http:request-connection>
+	</http:request-config>
+	<flow name="implementation-video-games-system-apiFlow" doc:id="d6720f10-b3c5-496c-87ed-83e18a95eefe" >
+		<http:request method="GET" doc:name="Request" doc:id="5e8d2673-50ff-4671-bc19-d8ccbe5d52da" config-ref="HTTP_Request_configuration" path="/api/games">
+			<http:query-params ><![CDATA[#[output application/java
+---
+{
+	"key" : attributes.queryParams.key
+}]]]></http:query-params>
+		</http:request>
+	</flow>
+</mule>
