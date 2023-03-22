@@ -11,7 +11,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			</http:authentication>
 		</http:request-connection>
 	</http:request-config>
-	<flow name="implementation-video-games-system-apiFlow" doc:id="d6720f10-b3c5-496c-87ed-83e18a95eefe" >
+	<flow name="sys-rawg-apiFlow" doc:id="d6720f10-b3c5-496c-87ed-83e18a95eefe" >
 		<http:request method="GET" doc:name="Request" doc:id="5e8d2673-50ff-4671-bc19-d8ccbe5d52da" config-ref="HTTP_Request_configuration" path="/api/games">
 			<http:query-params ><![CDATA[#[output application/java
 ---
