@@ -11,12 +11,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			</http:authentication>
 		</http:request-connection>
 	</http:request-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="80bebd13-cd3a-4684-a466-53833ffde0e3" file="config.yaml" />
 	<flow name="sys-rawg-apiFlow" doc:id="d6720f10-b3c5-496c-87ed-83e18a95eefe" >
 		<http:request method="GET" doc:name="Request" doc:id="5e8d2673-50ff-4671-bc19-d8ccbe5d52da" config-ref="HTTP_Request_configuration" path="/api/games">
-			<http:query-params ><![CDATA[#[output application/java
+			<http:query-params ><![CDATA[#[output application/json
 ---
 {
-	"key" : attributes.queryParams.key
+	"key" : p("key"),
+	("page": attributes.queryParams.page) if(attributes.queryParams.page?)
 }]]]></http:query-params>
 		</http:request>
 	</flow>
