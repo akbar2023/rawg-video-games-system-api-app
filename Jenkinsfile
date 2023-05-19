@@ -1,25 +1,25 @@
-pipeline 
-{
+pipeline {
+    agent any
 
-    agent any 
     stages {
-        stage('MunitTest Application') { 
-        steps {
-            bat 'mvn clean test'
-                // 
-            } 
-        }
-        stage('Build Application') { 
+        stage('Munit Test') {
             steps {
-            bat 'mvn clean install'
-                // 
+                echo 'Testing..'
+                bat 'mvn clean test'
             }
         }
-        stage('Deploying application To Mulesoft cloudhub') { 
+        stage('Build') {
             steps {
-            bat 'mvn clean deploy -DmuleDeploy -DskipTests -Dmule.version=4.4.0 -Danypoint.username=akbar_khan1 -Danypoint.password=Mymulesoft@20 -Denv=Sandbox -Dappname=sys-rawg-api -Dbusiness=cap4 -DvCore=Micro -Dworkers=1'
-                // 
-            } 
+                echo 'Building..'
+                bat 'mvn clean install'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to cloudHub...'
+                bat 'mvn clean deploy -DmuleDeploy -DskipTests -Dmule.version=4.4.0 -Danypoint.username=akbar_khan1 -Danypoint.password=Mymulesoft@20 -Denv=Sandbox -Dappname=sys-rawg-api -Dbusiness=cap -DvCore=Micro -Dworkers=1'
+                echo 'Deployed...'
+            }
         }
     }
 }
