@@ -21,5 +21,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	("page": attributes.queryParams.page) if(attributes.queryParams.page?)
 }]]]></http:query-params>
 		</http:request>
+		<logger level="INFO" doc:name="Logger" doc:id="54355586-f1c2-4dab-a1de-4ec2ca2ed080" message='#["CALL RAWG API"]'/>
 	</flow>
 </mule>
