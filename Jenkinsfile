@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Munit Test') {
+            steps {
+                echo 'Testing..'
+                bat 'mvn clean test'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
