@@ -1,0 +1,15 @@
+#%RAML 1.0
+title: sys-rawg-api
+
+
+/games:
+  description: RAWG is a video games API
+  get:
+    description: get games from rawg api
+    queryParameters:
+      page?: number
+    responses:
+      200:
+        body:
+          application/json:
+            examples: !include examples/games.raml
