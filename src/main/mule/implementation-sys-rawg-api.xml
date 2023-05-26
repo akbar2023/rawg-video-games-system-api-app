@@ -5,7 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="2ec49bf6-b70b-4862-868a-2086a0988396" >
-		<http:request-connection host="api.rawg.io" >
+		<http:request-connection host="api.rawg.io">
 			<http:authentication >
 				<http:basic-authentication username="akbar20" password="Myrawg@20" />
 			</http:authentication>
